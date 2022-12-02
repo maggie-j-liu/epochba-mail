@@ -15,14 +15,6 @@ export const sendEmail = async ({
   privateKey: string;
   bccTeam: boolean;
 }) => {
-  console.log(
-    "sending to",
-    JSON.stringify(
-      to.length === 1
-        ? [{ email: to[0] }]
-        : [{ email: "test-team@epochba.hackclub.com" }]
-    )
-  );
   const res = await fetch("https://api.mailchannels.net/tx/v1/send", {
     method: "POST",
     headers: {
