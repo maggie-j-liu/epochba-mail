@@ -20,6 +20,7 @@ export interface Env {
   // Example binding to R2. Learn more at https://developers.cloudflare.com/workers/runtime-apis/r2/
   // MY_BUCKET: R2Bucket;
   AUTH_TOKEN: string;
+  DKIM_PRIVATE_KEY: string;
 }
 
 export default {
@@ -82,7 +83,7 @@ export default {
       subject,
       htmlContent: htmlMessage,
       textContent: textMessage,
-      // privateKey: env.DKIM_PRIVATE_KEY,
+      privateKey: env.DKIM_PRIVATE_KEY,
       bccTeam,
     });
 

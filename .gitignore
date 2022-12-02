@@ -169,3 +169,7 @@ dist
 # wrangler project
 
 .dev.vars
+
+# keys
+priv_key.pem
+record.txt

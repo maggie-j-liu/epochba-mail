@@ -4,7 +4,7 @@ export const sendEmail = async ({
   subject,
   htmlContent,
   textContent,
-  // privateKey,
+  privateKey,
   bccTeam,
 }: {
   to: string[];
@@ -12,7 +12,7 @@ export const sendEmail = async ({
   subject: string;
   htmlContent: string;
   textContent: string;
-  // privateKey: string;
+  privateKey: string;
   bccTeam: boolean;
 }) => {
   console.log(
@@ -34,16 +34,16 @@ export const sendEmail = async ({
           to:
             to.length === 1
               ? [{ email: to[0] }]
-              : [{ email: "test-team@epochba.hackclub.com" }],
+              : [{ email: "emails@epochba.hackclub.com" }],
           bcc:
             to.length === 1
               ? bccTeam
-                ? [{ email: "test-team@epochba.hackclub.com" }]
+                ? [{ email: "emails@epochba.hackclub.com" }]
                 : []
               : [...to.map((e) => ({ email: e }))],
-          // dkim_domain: "epochba.hackclub.com",
-          // dkim_private_key: privateKey,
-          // dkim_selector: "mailchannels",
+          dkim_domain: "epochba.hackclub.com",
+          dkim_private_key: privateKey,
+          dkim_selector: "mailchannels",
         },
       ],
       from: from
